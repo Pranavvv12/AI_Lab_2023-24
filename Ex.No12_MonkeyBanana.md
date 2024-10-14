@@ -1,20 +1,18 @@
-Ex.No: 12 Planning – Monkey Banana Problem
-DATE: 
-REGISTER NUMBER : 212222040119
-AIM:
+# Ex.No: 12  Planning –  Monkey Banana Problem
+### DATE:                                                                           
+### REGISTER NUMBER : 212222040119
+### AIM: 
 To find the sequence of plan for Monkey Banana problem using PDDL Editor.
-
-Algorithm:
-Step 1: Start the program
-Step 2 : Create a domain for Monkey Banana Problem.
-Step 3: Create a domain by specifying predicates.
-Step 4: Specify the actions GOTO, CLIMB, PUSH-BOX, GET-KNIFE, GRAB-BANANAS in Monkey Banana problem.
-
-Step 5: Define a problem for Monkey Banana problem.
-Step 6: Obtain the plan for given problem.
-Step 7: Stop the program.
-
-Program:
+###  Algorithm:
+Step 1:  Start the program <br> 
+Step 2 : Create a domain for Monkey Banana Problem. <br> 
+Step 3:  Create a domain by specifying predicates. <br> 
+Step 4: Specify the actions GOTO, CLIMB, PUSH-BOX, GET-KNIFE, GRAB-BANANAS in Monkey Banana problem.<br>  
+Step 5:   Define a problem for Monkey Banana problem.<br> 
+Step 6:  Obtain the plan for given problem.<br> 
+Step 7: Stop the program.<br> 
+### Program:
+```
 domain.pddl
 (define (domain monkey) 
  (:requirements :strips) 
@@ -64,7 +62,9 @@ domain.pddl
  (at monkey ?y) 
  (onbox ?y)) 
  :effect (haswater))) 
-Input
+```
+### Input 
+```
 problem.pddl
 (define (problem pb1) 
  (:domain monkey) 
@@ -81,8 +81,8 @@ problem.pddl
  ) 
  (:goal (and (hasbananas))) 
 )
-Output/Plan:
-image
-
-Result:
+```
+### Output/Plan:
+![image](https://github.com/vithyasenthilkumar/AI_Lab_2023-24/assets/127177445/c31da597-3bff-461a-a26e-e1ed9e5ff38e)
+### Result:
 Thus the plan was found for the initial and goal state of given problem.
