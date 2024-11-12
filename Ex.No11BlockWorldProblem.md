@@ -1,4 +1,4 @@
-# Ex.No: 8  Planning –  Block World Problem 
+# Ex.No: 11  Planning –  Block World Problem 
 ### DATE:                                                                           
 ### REGISTER NUMBER : 212222040119
 ### AIM: 
