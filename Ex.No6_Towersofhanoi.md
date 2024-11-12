@@ -1,4 +1,4 @@
-Lab Experiment 6: Towers of Hanoi _ Prolog   
+## Lab Experiment 6: Towers of Hanoi _ Prolog   
 ### DATE:                                                                            
 ### REGISTER NUMBER :  212222040119
 ### AIM: 
