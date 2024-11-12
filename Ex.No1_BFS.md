@@ -52,9 +52,9 @@ accuracy = accuracy_score(y_test, y_pred)
 report = classification_report(y_test, y_pred, target_names=le.classes_)
 
 print("Accuracy:", accuracy)
-print("Classification Report:\n", report)```
+print("Classification Report:\n", report)
+```
 
-### Output:
 
-### Result:
+### RESULT:
 Thus the system was trained successfully and the prediction was carried out.
