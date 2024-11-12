@@ -1,51 +1,60 @@
-# Ex.No: 1  Implementation of Breadth First Search 
+# Ex.No: 13 Learning – Use Supervised Learning  
 ### DATE:                                                                            
 ### REGISTER NUMBER : 
 ### AIM: 
-To write a python program to implement Breadth first Search. 
-### Algorithm:
-1. Start the program
-2. Create the graph by using adjacency list representation
-3. Define a function bfs and take the set “visited” is empty and “queue” is empty
-4. Search start with initial node and add the node to visited and queue.
-5. For each neighbor node, check node is not in visited then add node to visited and queue list.
-6.  Creating loop to print the visited node.
-7.   Call the bfs function by passing arguments visited, graph and starting node.
-8.   Stop the program.
+To write a program to train the classifier for Leaf Detection
+###  Algorithm:
+
 ### Program:
-```
-graph = {
- '5' : ['3', '7'],
- '3' : ['2', '4'],
- '7' : ['8'],
- '2' : [],
- '4' : ['8'],
- '8' : []
-}
+```Import Libraries
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score, classification_report
+from sklearn.preprocessing import LabelEncoder
+from skimage.io import imread
+from skimage.transform import resize
+import os
+import cv2
 
-visited = [] 
-queue = []    
+data_dir = 'path/to/your/leaf_dataset'
+classes = os.listdir(data_dir)
+image_data = []
+labels = []
 
-def bfs(visited, graph, node):  
-    visited.append(node)
-    queue.append(node)
-    
-    while queue:  
-        m = queue.pop(0)
-        print(m)
-        
-        for neighbour in graph[m]:
-            if neighbour not in visited:
-                visited.append(neighbour)
-                queue.append(neighbour)
+for class_name in classes:
+    class_path = os.path.join(data_dir, class_name)
+    for img_name in os.listdir(class_path):
+        try:
+            img_path = os.path.join(class_path, img_name)
+            img = imread(img_path)
+            img_resized = resize(img, (128, 128))  # Resize to a fixed size
+            image_data.append(img_resized.flatten())  # Flatten to 1D
+            labels.append(class_name)
+        except Exception as e:
+            print(f"Error reading {img_name}: {e}")
 
-print("Following is the Breadth-First Search")
-bfs(visited, graph, '5')
-```
+X = np.array(image_data)
+y = np.array(labels)
+
+le = LabelEncoder()
+y_encoded = le.fit_transform(y)
+
+X_train, X_test, y_train, y_test = train_test_split(X, y_encoded, test_size=0.2, random_state=42)
+
+classifier = DecisionTreeClassifier(random_state=42)
+classifier.fit(X_train, y_train)
+
+y_pred = classifier.predict(X_test)
+
+accuracy = accuracy_score(y_test, y_pred)
+report = classification_report(y_test, y_pred, target_names=le.classes_)
+
+print("Accuracy:", accuracy)
+print("Classification Report:\n", report)```
+
 ### Output:
-![BfS](https://github.com/user-attachments/assets/c80bf973-7fc5-4a14-8a00-aa29b78f0abe)
-
-
 
 ### Result:
-Thus the breadth first search order was found sucessfully.
+Thus the system was trained successfully and the prediction was carried out.
